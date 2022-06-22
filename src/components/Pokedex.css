@@ -1,0 +1,28 @@
+.Pokedex {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Pokedex__cards {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.Pokedex__title {
+    color: bisque;
+    border: 5px solid rgba(150,150,100,0.5);
+    border-radius: 50px;
+    width: 50%;
+    box-shadow: 15px 15px rgba(150,200,100,0.6);
+    margin-top: 1em;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.Pokedex__title__h1 {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-shadow: 5px 5px rgba(150,200,100,0.4);
+    align-items: center;
+}

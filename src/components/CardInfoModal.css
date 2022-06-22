@@ -1,0 +1,115 @@
+.cardInfoModal{
+    position: absolute;
+    width: 70%;
+    height:fit-content;
+    left: 15%;
+    border: 3px solid #011627;
+    border-radius: 5em;
+    box-shadow: -10px 10px 20px #E71D36;
+
+    background-color: rgba(255,255,237,0.95);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    
+    color: #011627;
+    z-index: 9999;
+}
+
+.cardInfoModal__sprites{
+    display:flex;
+    flex-flow: column;
+}
+
+.cardInfoModal__sprites__figure{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    border: 5px solid tomato;
+    background-color: rgba(217,144,88,0.3);
+    border-radius: 50%;
+    text-align: center;
+    padding: 2.5em;
+    width: fit-content;
+    height: fit-content;
+}
+
+.cardInfoModal__sprites__male{
+    display:flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 10px;
+    border: 3px solid black;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+    border-radius: 5em;
+    margin: 1em;
+}
+
+.cardInfoModal__sprites__female{
+    display:flex;
+    flex-flow: row wrap;
+    align-items: center;
+    padding: 10px;
+    border: 3px solid black;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+    border-radius: 5em;
+    margin: 1em;
+}
+
+.cardInfoModal__Button {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    border: 5px solid indigo;
+    border-radius: 30px;
+    background-color: rgba(75,0,130,0.4);
+    padding: 10px;
+    margin-bottom: 10px;
+    align-items: right;
+    margin-top: 5px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+}
+
+.cardInfoModal__Button:hover{
+    background-color:red;
+    cursor:pointer;
+}
+
+.cardInfoModal__Information{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 3px solid navy;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px navy;
+    padding: 20px;
+    width: 85%;
+    margin-bottom: 2em;
+    font-family: cursive;
+
+}
+
+.cardInfoModal__Information__Element{
+    justify-content: center;
+    border: 3px solid black;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+.cardInfoModal__Information__ManyElements{
+    border: 3px solid black;
+    text-align: center;
+    margin: 0.5em;
+    padding: 0.5em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
