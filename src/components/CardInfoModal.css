@@ -40,6 +40,7 @@
 .cardInfoModal__sprites__male{
     display:flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     align-items: center;
     padding: 10px;
     border: 3px solid black;
@@ -51,6 +52,7 @@
 .cardInfoModal__sprites__female{
     display:flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     align-items: center;
     padding: 10px;
     border: 3px solid black;
@@ -95,7 +97,7 @@
 
 .cardInfoModal__Information__Element{
     justify-content: center;
-    border: 3px solid black;
+    border-radius: 2em;
     width: fit-content;
     height: fit-content;
     text-align: center;
@@ -104,12 +106,25 @@
 }
 
 .cardInfoModal__Information__ManyElements{
-    border: 3px solid black;
+
+    border-radius: 2em;
     text-align: center;
     margin: 0.5em;
     padding: 0.5em;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: center;
+
+}
+
+.cardInfoModal__Information__Element__Unexpanded{
+    display: flex;
+    flex-direction: column;
+}
+
+.cardInfoModal__Information__OpenButtons{
+    cursor: pointer;
+    border-radius: 2em;
+    background-color: rgba(75,0,130,0.4);
+    padding: 0.5em;
 }

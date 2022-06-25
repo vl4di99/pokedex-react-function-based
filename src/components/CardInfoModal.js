@@ -10,6 +10,7 @@ import Forms from "./Information/Forms";
 import GameIndices from "./Information/GameIndices";
 import Height from "./Information/Height";
 import HeldItems from "./Information/HeldItems";
+import Moves from "./Information/Moves";
 
 function CardInfoModal(props) {
   const [pokeImagesMale, setPokeImagesMale] = useState([
@@ -34,6 +35,13 @@ function CardInfoModal(props) {
 
   const [name, setName] = useState("");
   const [information] = useState(props.pokeInfo);
+  const [expandAbilities, setExpandAbilities] = useState(false);
+  const [expandBaseExperience, setExpandBaseExperience] = useState(false);
+  const [expandForms, setExpandForms] = useState(false);
+  const [expandGameIndices, setExpandGameIndices] = useState(false);
+  const [expandHeight, setExpandHeight] = useState(false);
+  const [expandHeldItems, setExpandHeldItems] = useState(false);
+  const [expandMoves, setExpandMoves] = useState(false);
 
   const getInfo = useCallback(() => {
     axios
@@ -141,51 +149,202 @@ function CardInfoModal(props) {
       </div>
       <h2>Information about {name}</h2>
       <div className="cardInfoModal__Information">
-        <div className="cardInfoModal__Information__Element">
-          <h3>Abilities</h3>
-          {information.abilities.map((item, index) => (
-            <Abilities
-              name={item.ability.name}
-              hidden={item.is_hidden}
-              slot={item.slot}
-              key={index}
-            />
-          ))}
+        {/*-------------------------------------------------------------------*/}
+        {/*-----------------------------ABILITIES-----------------------------*/}
+        {/*-------------------------------------------------------------------*/}
+        <div
+          className="cardInfoModal__Information__Element"
+          onClick={() => setExpandAbilities(!expandAbilities)}
+          style={{ cursor: "pointer" }}
+        >
+          {expandAbilities ? (
+            <span>
+              <h3>Abilities</h3>
+              {information.abilities.map((item, index) => (
+                <Abilities
+                  name={item.ability.name}
+                  hidden={item.is_hidden}
+                  slot={item.slot}
+                  key={index}
+                />
+              ))}
+            </span>
+          ) : (
+            <div className="cardInfoModal__Information__Element__Unexpanded">
+              <h3>Abilities</h3>
+              <h4
+                onClick={() => setExpandAbilities(!expandAbilities)}
+                className="cardInfoModal__Information__OpenButtons"
+              >
+                Open Me
+              </h4>
+            </div>
+          )}
         </div>
-        <div className="cardInfoModal__Information__Element">
-          <h3>Base Experience</h3>
-          <BaseExperience xp={information.base_experience} />
+        {/*-------------------------------------------------------------------*/}
+        {/*-----------------------BASE EXPERIENCE-----------------------------*/}
+        {/*-------------------------------------------------------------------*/}
+        <div
+          className="cardInfoModal__Information__Element"
+          onClick={() => setExpandBaseExperience(!expandBaseExperience)}
+          style={{ cursor: "pointer" }}
+        >
+          {expandBaseExperience ? (
+            <span>
+              <h3>Base Experience</h3>
+              <BaseExperience xp={information.base_experience} />
+            </span>
+          ) : (
+            <div className="cardInfoModal__Information__Element__Unexpanded">
+              <h3>Base Experience</h3>
+              <h4
+                onClick={() => setExpandBaseExperience(!expandBaseExperience)}
+                className="cardInfoModal__Information__OpenButtons"
+              >
+                Open Me
+              </h4>
+            </div>
+          )}
         </div>
-        <div className="cardInfoModal__Information__Element">
-          <h3>Forms</h3>
-          {information.forms.map((item, index) => (
-            <Forms name={item.name} url={item.url} key={index} />
-          ))}
+        {/*-------------------------------------------------------------------*/}
+        {/*--------------------------------FORMS-----------------------------*/}
+        {/*-------------------------------------------------------------------*/}
+        <div
+          className="cardInfoModal__Information__Element"
+          onClick={() => setExpandForms(!expandForms)}
+          style={{ cursor: "pointer" }}
+        >
+          {expandForms ? (
+            <span>
+              <h3>Forms</h3>
+              {information.forms.map((item, index) => (
+                <Forms name={item.name} url={item.url} key={index} />
+              ))}
+            </span>
+          ) : (
+            <div className="cardInfoModal__Information__Element__Unexpanded">
+              <h3>Forms</h3>
+              <h4
+                onClick={() => setExpandForms(!expandForms)}
+                className="cardInfoModal__Information__OpenButtons"
+              >
+                Open Me
+              </h4>
+            </div>
+          )}
         </div>
-        <div className="cardInfoModal__Information__ManyElements">
-          <h3>Game Indices</h3>
-          {information.game_indices.map((item, index) => (
-            <GameIndices
-              game_index={item.game_index}
-              version={item.version.name}
-              url={item.version.url}
-              key={index}
-            />
-          ))}
+        {/*-------------------------------------------------------------------*/}
+        {/*--------------------------Game Indices-----------------------------*/}
+        {/*-------------------------------------------------------------------*/}
+        <div
+          className="cardInfoModal__Information__ManyElements"
+          onClick={() => setExpandGameIndices(!expandGameIndices)}
+          style={{ cursor: "pointer" }}
+        >
+          {expandGameIndices ? (
+            <span>
+              <h3>Game Indices</h3>
+              {information.game_indices.map((item, index) => (
+                <GameIndices
+                  game_index={item.game_index}
+                  version={item.version.name}
+                  url={item.version.url}
+                  key={index}
+                />
+              ))}
+            </span>
+          ) : (
+            <div className="cardInfoModal__Information__Element__Unexpanded">
+              <h3>Game Indices</h3>
+              <h4
+                onClick={() => setExpandGameIndices(!expandGameIndices)}
+                className="cardInfoModal__Information__OpenButtons"
+              >
+                Open Me
+              </h4>
+            </div>
+          )}
         </div>
-        <div className="cardInfoModal__Information__Element">
-          <h3>Height</h3>
-          <Height height={information.height} />
+        {/*-------------------------------------------------------------------*/}
+        {/*--------------------------------HEIGHT-----------------------------*/}
+        {/*-------------------------------------------------------------------*/}
+        <div
+          className="cardInfoModal__Information__Element"
+          onClick={() => setExpandHeight(!expandHeight)}
+          style={{ cursor: "pointer" }}
+        >
+          {expandHeight ? (
+            <Height height={information.height} />
+          ) : (
+            <div className="cardInfoModal__Information__Element__Unexpanded">
+              <h3>Height</h3>
+              <h4
+                onClick={() => setExpandHeight(!expandHeight)}
+                className="cardInfoModal__Information__OpenButtons"
+              >
+                Open Me
+              </h4>
+            </div>
+          )}
         </div>
-        <div className="cardInfoModal__Information__ManyElements">
-          <h3>Held Items</h3>
-          {information.held_items.map((item, index) => (
-            <HeldItems
-              item={item.item}
-              version={item.version_details}
-              key={index}
-            />
-          ))}
+        {/*-------------------------------------------------------------------*/}
+        {/*----------------------------HELD ITEMS-----------------------------*/}
+        {/*-------------------------------------------------------------------*/}
+        <div
+          className="cardInfoModal__Information__ManyElements"
+          onClick={() => setExpandHeldItems(!expandHeldItems)}
+          style={{ cursor: "pointer" }}
+        >
+          {expandHeldItems ? (
+            information.held_items.map((item, index) => (
+              <HeldItems
+                item={item.item}
+                version={item.version_details}
+                key={index}
+              />
+            ))
+          ) : (
+            <div className="cardInfoModal__Information__Element__Unexpanded">
+              <h3>Held Items</h3>
+              <h4
+                onClick={() => setExpandHeldItems(!expandHeldItems)}
+                className="cardInfoModal__Information__OpenButtons"
+              >
+                Open Me
+              </h4>
+            </div>
+          )}
+        </div>
+        {/*-------------------------------------------------------------------*/}
+        {/*---------------------------------MOVES-----------------------------*/}
+        {/*-------------------------------------------------------------------*/}
+        <div
+          className="cardInfoModal__Information__ManyElements"
+          onClick={() => setExpandMoves(!expandMoves)}
+          style={{ cursor: "pointer" }}
+        >
+          {expandMoves ? (
+            <span>
+              <h3>Moves</h3>
+              {information.moves.map((el, index) => (
+                <Moves
+                  move={el.move}
+                  details={el.version_group_details}
+                  key={index}
+                />
+              ))}
+            </span>
+          ) : (
+            <div className="cardInfoModal__Information__Element__Unexpanded">
+              <h3>Moves</h3>
+              <h4
+                onClick={() => setExpandMoves(!expandMoves)}
+                className="cardInfoModal__Information__OpenButtons"
+              >
+                Open Me
+              </h4>
+            </div>
+          )}
         </div>
       </div>
     </div>
