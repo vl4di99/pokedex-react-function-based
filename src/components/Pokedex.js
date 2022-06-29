@@ -4,7 +4,7 @@ import axios from "axios";
 import Pokecard from "./Pokecard";
 
 const offset_api = 0;
-const limit_api = 20;
+const limit_api = 2000;
 const Pokemons_API = `${process.env.REACT_APP_POKE_API}pokemon?offset${offset_api}&limit=${limit_api}`;
 
 function Pokedex() {
